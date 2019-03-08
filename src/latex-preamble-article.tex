@@ -1,0 +1,140 @@
+\documentclass[a4paper,oneside,11pt,bibtotoc,bibliography=openstyle]{scrartcl}
+\usepackage{scrhack}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage[hang,flushmargin,multiple]{footmisc}
+\setlength\parindent{0pt}
+\usepackage[breaklinks]{hyperref}
+\usepackage{xcolor}
+\definecolor{darkred}{rgb}{0.6, 0, 0}
+\definecolor{darkblue}{rgb}{0, 0, 0.6}
+\hypersetup{
+colorlinks,
+citecolor=darkred,
+linkcolor=darkred,
+urlcolor=darkblue
+}
+\usepackage{cleveref}
+\usepackage{caption}
+\usepackage[newfloat]{minted}
+\setminted{frame=lines,framesep=2mm,baselinestretch=1.2,fontsize=\footnotesize,linenos}
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{15pt}
+\usepackage{csquotes}
+\usepackage{soulutf8}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+\addbibresource{quellen.bib}
+\usepackage{blindtext} % test text
+
+\title{Titel}
+\author{Autor}
+\date{\today}
+
+\begin{document}
+\clearpage
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Einleitung}
+\blindtext
+
+\section{Hauptteil}
+\blindtext\footnote{vgl. \cite{heise}}\\
+\enquote{Zitat oder ähnliches}
+
+\subsection{Erkenntnisse}
+
+\subsubsection{A}
+
+\subsubsection{B}
+
+\subsubsection{Zusammenfassung}
+\begin{itemize}
+    \item Punkt A
+    \item Punkt B
+\end{itemize}
+
+\section{Schluss}
+
+Beispiel eines Java-Codeblocks:
+
+\begin{minted}{java}
+package example;
+
+/**
+  * point in 2D space
+  */
+public class Point2D {
+    private int x;
+    private int y;
+
+    /**
+      * private contructor hence we have to set the coords explicit
+      */
+    private Point2D() { }
+
+    public Point2D(int x, int y) {
+        setX(x);
+        setY(y);
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+}
+\end{minted}
+
+\newpage
+\printbibliography
+
+\newpage
+\blindtext\\\\
+
+\begin{tabular}{L{5.5cm} C{0.5cm} L{7.5cm}}
+     & & \\
+    \cline{1-1}\cline{3-3}
+    \texttt{Ort, Datum} & & \texttt{Unterschrift}
+\end{tabular}
+
+\end{document}
